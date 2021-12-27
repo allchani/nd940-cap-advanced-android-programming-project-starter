@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="representative"
+            type="com.example.android.politicalpreparedness.representative.model.Representative" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/representative_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:profileImage="@{representative.official.photoUrl}"
+            tools:srcCompat="@drawable/ic_profile" />
+
+        <TextView
+            android:id="@+id/representative_position"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{representative.office.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/representative_photo"
+            app:layout_constraintTop_toTopOf="@+id/representative_photo"
+            tools:text="President of Cartoon World"/>
+
+        <TextView
+            android:id="@+id/representative_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@{representative.official.name}"
+            app:layout_constraintEnd_toStartOf="@+id/wwwIcon"
+            app:layout_constraintStart_toStartOf="@+id/representative_position"
+            app:layout_constraintTop_toBottomOf="@+id/representative_position"
+            tools:text="Mickey Mouse"/>
+
+        <TextView
+            android:id="@+id/party_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@{representative.official.party}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/wwwIcon"
+            app:layout_constraintStart_toStartOf="@+id/representative_name"
+            app:layout_constraintTop_toBottomOf="@+id/representative_name"
+            tools:text="Let's have a party!"/>
+
+        <ImageView
+            android:id="@+id/wwwIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/facebook_icon"
+            app:layout_constraintTop_toTopOf="@+id/representative_name"
+            app:srcCompat="@drawable/ic_www"
+            tools:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/facebook_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/twitter_icon"
+            app:layout_constraintTop_toTopOf="@+id/wwwIcon"
+            app:srcCompat="@drawable/ic_facebook"
+            tools:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/twitter_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/representative_position"
+            app:layout_constraintTop_toTopOf="@+id/facebook_icon"
+            app:srcCompat="@drawable/ic_twitter"
+            tools:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
